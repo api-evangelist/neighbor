@@ -1,8 +1,7 @@
 aid: neighbor
 name: Neighbor
 description: >-
-  The Neighbor API allows trusted users to retrieve reports related to their
-  account. 
+  The Neighbor API allows trusted users to retrieve reports related to their account.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -18,8 +17,7 @@ apis:
   - aid: neighbor:neighbor
     name: Neighbor
     description: >-
-      The Neighbor API allows trusted users to retrieve reports related to their
-      account. 
+      The Neighbor API allows trusted users to retrieve reports related to their account.
     humanURL: ' https://api.neighbor.com/'
     tags:
       - API
