@@ -1,0 +1,95 @@
+openapi: 3.0.3
+info:
+  title: Neighbor API
+  description: >-
+    The Neighbor API allows trusted hosts to retrieve account-related reports
+    including reservations and payout transfers.
+  version: '1.0'
+  contact:
+    name: Neighbor
+    url: https://www.neighbor.com
+servers:
+  - url: https://api.neighbor.com
+    description: Neighbor production API
+security:
+  - NeighborApiKey: []
+paths:
+  /public/reports/reservation:
+    get:
+      summary: Get reservation report
+      description: Retrieves active reservations for the authenticated user, including vehicle and host fee details.
+      operationId: getReservationReport
+      responses:
+        '200':
+          description: List of active reservations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reservations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        reservation_id:
+                          type: string
+                        vehicle:
+                          type: object
+                        host_fee:
+                          type: number
+                        start_date:
+                          type: string
+                          format: date
+                        end_date:
+                          type: string
+                          format: date
+        '401':
+          description: Unauthorized
+  /public/reports/transfer:
+    get:
+      summary: Get transfer/payout report
+      description: Retrieves payout transfer records for the authenticated user, optionally filtered by year and month.
+      operationId: getTransferReport
+      parameters:
+        - name: year
+          in: query
+          schema:
+            type: integer
+        - name: month
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 12
+      responses:
+        '200':
+          description: List of transfer records with running totals
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transfers:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        transfer_id:
+                          type: string
+                        amount:
+                          type: number
+                        running_total:
+                          type: number
+                        date:
+                          type: string
+                          format: date
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    NeighborApiKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Use header value `NEIGHBOR-API-KEY <your-api-key>`. Email jon@neighbor.com to request an API key.
