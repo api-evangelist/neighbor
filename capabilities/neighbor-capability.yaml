@@ -1,0 +1,117 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Neighbor API
+  description: The Neighbor API allows trusted hosts to retrieve account-related reports including reservations and payout
+    transfers.
+  tags:
+  - Neighbor
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: neighbor
+    baseUri: https://api.neighbor.com
+    description: Neighbor API HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: Authorization
+      value: '{{NEIGHBOR_TOKEN}}'
+    resources:
+    - name: public-reports-reservation
+      path: /public/reports/reservation
+      operations:
+      - name: getreservationreport
+        method: GET
+        description: Get reservation report
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: public-reports-transfer
+      path: /public/reports/transfer
+      operations:
+      - name: gettransferreport
+        method: GET
+        description: Get transfer/payout report
+        inputParameters:
+        - name: year
+          in: query
+          type: integer
+        - name: month
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: neighbor-rest
+    description: REST adapter for Neighbor API.
+    resources:
+    - path: /public/reports/reservation
+      name: getreservationreport
+      operations:
+      - method: GET
+        name: getreservationreport
+        description: Get reservation report
+        call: neighbor.getreservationreport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /public/reports/transfer
+      name: gettransferreport
+      operations:
+      - method: GET
+        name: gettransferreport
+        description: Get transfer/payout report
+        call: neighbor.gettransferreport
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: neighbor-mcp
+    transport: http
+    description: MCP adapter for Neighbor API for AI agent use.
+    tools:
+    - name: getreservationreport
+      description: Get reservation report
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: neighbor.getreservationreport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gettransferreport
+      description: Get transfer/payout report
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: neighbor.gettransferreport
+      with:
+        year: tools.year
+        month: tools.month
+      inputParameters:
+      - name: year
+        type: integer
+        description: year
+      - name: month
+        type: integer
+        description: month
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    NEIGHBOR_TOKEN: NEIGHBOR_TOKEN
