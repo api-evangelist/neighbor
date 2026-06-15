@@ -1,7 +1,8 @@
 aid: neighbor
 name: Neighbor
-description: The Neighbor API allows trusted hosts to retrieve reports related to their account, including active reservations
-  and payout transfers.
+description: >-
+  The Neighbor API allows trusted hosts to retrieve reports related to their account, including active reservations and
+  payout transfers.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -26,15 +27,13 @@ apis:
     humanURL: https://api.neighbor.com/
     baseURL: https://api.neighbor.com
     tags:
-    - Reporting
-    - Storage
+      - Reporting
+      - Storage
     properties:
-    - type: Documentation
-      url: https://api.neighbor.com/
-    - type: OpenAPI
-      url: https://raw.githubusercontent.com/api-evangelist/neighbor/refs/heads/main/openapi/neighbor-openapi.yml
-    - type: NaftikoCapability
-      url: capabilities/neighbor.yaml
+      - type: Documentation
+        url: https://api.neighbor.com/
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/neighbor/refs/heads/main/openapi/neighbor-openapi.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

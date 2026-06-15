@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Neighbor API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get reservation report",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.neighbor.com/public/reports/reservation"
+      },
+      "docs": "Retrieves active reservations for the authenticated user, including vehicle and host fee details."
+    },
+    {
+      "info": {
+        "name": "Get transfer/payout report",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.neighbor.com/public/reports/transfer",
+        "params": [
+          {
+            "name": "year",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "month",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Retrieves payout transfer records for the authenticated user, optionally filtered by year and month."
+    }
+  ],
+  "bundled": true
+}
