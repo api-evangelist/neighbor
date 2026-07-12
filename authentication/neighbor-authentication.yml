@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/neighbor-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: NeighborApiKey
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: Use header value `NEIGHBOR-API-KEY <your-api-key>`. Email jon@neighbor.com to
+    request an API key.
+  sources:
+  - openapi/neighbor-openapi.yml
