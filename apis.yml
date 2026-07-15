@@ -16,6 +16,8 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/neighbor/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 common:
+  - type: AgenticAccess
+    url: agentic-access/neighbor-agentic-access.yml
   - type: DomainSecurity
     url: security/neighbor-domain-security.yml
   - type: Authentication
