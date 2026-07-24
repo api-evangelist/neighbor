@@ -1,18 +1,18 @@
 openapi: 3.0.3
 info:
-  title: Neighbor API
-  description: >-
-    The Neighbor API allows trusted hosts to retrieve account-related reports
-    including reservations and payout transfers.
+  title: Neighbor Public API
+  description: The Neighbor API allows trusted hosts to retrieve account-related reports including reservations and payout transfers.
   version: '1.0'
   contact:
     name: Neighbor
     url: https://www.neighbor.com
 servers:
-  - url: https://api.neighbor.com
-    description: Neighbor production API
+- url: https://api.neighbor.com
+  description: Neighbor production API
 security:
-  - NeighborApiKey: []
+- NeighborApiKey: []
+tags:
+- name: Public
 paths:
   /public/reports/reservation:
     get:
@@ -46,22 +46,24 @@ paths:
                           format: date
         '401':
           description: Unauthorized
+      tags:
+      - Public
   /public/reports/transfer:
     get:
       summary: Get transfer/payout report
       description: Retrieves payout transfer records for the authenticated user, optionally filtered by year and month.
       operationId: getTransferReport
       parameters:
-        - name: year
-          in: query
-          schema:
-            type: integer
-        - name: month
-          in: query
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 12
+      - name: year
+        in: query
+        schema:
+          type: integer
+      - name: month
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 12
       responses:
         '200':
           description: List of transfer records with running totals
@@ -86,6 +88,8 @@ paths:
                           format: date
         '401':
           description: Unauthorized
+      tags:
+      - Public
 components:
   securitySchemes:
     NeighborApiKey:
