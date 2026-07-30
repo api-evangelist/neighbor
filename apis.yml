@@ -4,9 +4,22 @@ description: >-
   The Neighbor API allows trusted hosts to retrieve reports related to their account, including active reservations and
   payout transfers.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/neighbor.png
 tags:
   - Storage
   - Marketplace
@@ -27,19 +40,18 @@ common:
   - type: LinkedIn
     url: https://www.linkedin.com/company/neighbor
 apis:
-  - aid: neighbor:neighbor
-    name: Neighbor
-    description: The Neighbor API allows trusted users to retrieve reservation and transfer reports related to their account.
-    humanURL: https://api.neighbor.com/
-    baseURL: https://api.neighbor.com
-    tags:
-      - Reporting
-      - Storage
-    properties:
-      - type: Documentation
-        url: https://api.neighbor.com/
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/neighbor/refs/heads/main/openapi/neighbor-openapi.yml
+- aid: neighbor:neighbor-public-api
+  name: Neighbor Public API
+  description: The Public API from Neighbor — 2 operation(s) for public.
+  humanURL: https://api.neighbor.com/
+  baseURL: https://api.neighbor.com
+  tags:
+  - Public
+  properties:
+  - type: OpenAPI
+    url: openapi/neighbor-public-api-openapi.yml
+  - type: Documentation
+    url: https://api.neighbor.com/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
