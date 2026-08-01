@@ -1,0 +1,14 @@
+{
+  "provider": "neighbor",
+  "sources": [
+    "neighbor-public-api-openapi.yml"
+  ],
+  "outputs": [
+    "neighbor-public-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
