@@ -1,0 +1,324 @@
+{
+  "item": [
+    {
+      "id": "f98ec230-06c8-485c-af3b-2f4549d89b65",
+      "name": "Public",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "839b789b-bb25-440f-b9e9-eb96de3eb529",
+          "name": "Get reservation report",
+          "request": {
+            "name": "Get reservation report",
+            "description": {
+              "content": "Retrieves active reservations for the authenticated user, including vehicle and host fee details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "reports",
+                "reservation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e5e6f16a-db5c-4ce9-8c13-92344c87446b",
+              "name": "List of active reservations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "reports",
+                    "reservation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reservations\": [\n    {\n      \"reservation_id\": \"string\",\n      \"vehicle\": {},\n      \"host_fee\": 1386.3692146598005,\n      \"start_date\": \"1993-05-24\",\n      \"end_date\": \"2008-07-30\"\n    },\n    {\n      \"reservation_id\": \"string\",\n      \"vehicle\": {},\n      \"host_fee\": 3603.5343441002756,\n      \"start_date\": \"1960-08-04\",\n      \"end_date\": \"1966-11-07\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df6e5758-e598-4fec-9237-160889866c6d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "reports",
+                    "reservation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "102a0d18-a481-414a-af72-2b8c52485972",
+          "name": "Get transfer/payout report",
+          "request": {
+            "name": "Get transfer/payout report",
+            "description": {
+              "content": "Retrieves payout transfer records for the authenticated user, optionally filtered by year and month.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "reports",
+                "transfer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "month",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a53ef532-b045-4c9c-98c7-56dc7e7022fa",
+              "name": "List of transfer records with running totals",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "reports",
+                    "transfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "month",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transfers\": [\n    {\n      \"transfer_id\": \"string\",\n      \"amount\": 4641.431014073626,\n      \"running_total\": 5929.0421290025315,\n      \"date\": \"1962-09-03\"\n    },\n    {\n      \"transfer_id\": \"string\",\n      \"amount\": 4724.050996387164,\n      \"running_total\": 9520.28452435826,\n      \"date\": \"1988-05-11\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60fd74fc-da9a-4492-ae9c-db4c1844ed88",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "reports",
+                    "transfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "month",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.neighbor.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c9dcd390-c785-4f22-9dde-e444f55322ba",
+    "name": "Neighbor Public API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Neighbor API allows trusted hosts to retrieve account-related reports including reservations and payout transfers.\n\nContact Support:\n Name: Neighbor",
+      "type": "text/plain"
+    }
+  }
+}
