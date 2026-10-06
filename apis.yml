@@ -36,10 +36,14 @@ tags:
 - Marketplace
 - Reporting
 created: '2025-02-09'
-modified: '2026-09-16'
+modified: '2026-10-06'
 url: https://raw.githubusercontent.com/api-evangelist/neighbor/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 common:
+- url: https://www.neighbor.com/storage-blog/
+  type: Blog
+- url: https://www.neighbor.com/storage-blog/feed/
+  type: BlogRSS
 - type: Website
   url: https://neighbor.com
 - type: AgenticAccess
