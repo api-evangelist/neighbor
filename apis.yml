@@ -40,6 +40,12 @@ modified: '2026-10-06'
 url: https://raw.githubusercontent.com/api-evangelist/neighbor/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 common:
+- type: Plans
+  url: plans/neighbor-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/neighbor-rate-limits.yml
+- type: FinOps
+  url: finops/neighbor-finops.yml
 - url: https://www.neighbor.com/storage-blog/
   type: Blog
 - url: https://www.neighbor.com/storage-blog/feed/
